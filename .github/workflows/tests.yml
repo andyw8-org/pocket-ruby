@@ -14,7 +14,8 @@ jobs:
     needs: build-matrix
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJson(needs.build-matrix.outputs.version_matrix) }}
+      matrix:
+        versions: ${{ fromJson(needs.build-matrix.outputs.version_matrix) }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
